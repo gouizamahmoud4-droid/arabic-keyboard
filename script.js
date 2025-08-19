@@ -9,12 +9,15 @@ const tashkeelToggle = document.getElementById('tashkeelToggle');
 const tashkeelRow = document.getElementById('tashkeelRow');
 const themeToggle = document.getElementById('themeToggle');
 
+// Lettres arabes en ordre alphabétique, chiffres et ponctuation
 const rows = [
-  ['ض','ص','ث','ق','ف','غ','ع','ه','خ','ح','ج','د'],
-  ['ش','س','ي','ب','ل','ا','ت','ن','م','ك','ط'],
-  ['ئ','ء','ؤ','ر','لا','ى','ة','و','ز','ظ'],
-  ['،','؟','؛','ـ','⌫','␣']
+  ['ا','ب','ت','ث','ج','ح','خ','د','ذ','ر','ز','س'],
+  ['ش','ص','ض','ط','ظ','ع','غ','ف','ق','ك','ل','م'],
+  ['ن','هـ','و','ي','ء','ؤ','ئ','لا','ة','ى'],
+  ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'],
+  ['،','؛','؟','ـ','…','⌫','␣']
 ];
+
 const tashkeel = ['َ','ِ','ُ','ّ','ً','ٍ','ٌ','ْ','ٰ'];
 
 function makeRow(chars){
