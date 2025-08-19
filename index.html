@@ -1,41 +1,42 @@
 <!DOCTYPE html>
-<html lang="fr" dir="ltr">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Clavier Arabe – Utilitaire en ligne</title>
-  <meta name="description" content="Écrivez en arabe en ligne : clavier virtuel, voyelles courtes, copier, télécharger.">
+  <title>ArabiBoard – Online Arabic Keyboard</title>
+  <meta name="description" content="Write in Arabic online: virtual keyboard, short vowels, copy, download.">
   <link rel="icon" href="assets/favicon.ico" />
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>Clavier Arabe <span class="badge">MVP</span></h1>
+    <h1>ArabiBoard</h1>
+    <p class="slogan">Write Arabic instantly, anywhere</p>
   </header>
 
   <main>
     <div class="grid">
       <section class="box editor">
-        <textarea id="out" placeholder="اكتب هنا… (Écrivez ici)"></textarea>
+        <textarea id="out" placeholder="اكتب هنا… (Write here)"></textarea>
         <div class="toolbar">
-          <button id="copyBtn">Copier</button>
-          <button id="clearBtn">Effacer</button>
-          <button id="downloadBtn">Télécharger .txt</button>
+          <button id="copyBtn">Copy</button>
+          <button id="clearBtn">Clear</button>
+          <button id="downloadBtn">Download .txt</button>
           <button id="rtlBtn">RTL</button>
           <button id="ltrBtn">LTR</button>
-          <button id="tashkeelToggle">Voyelles courtes</button>
-          <button id="themeToggle">🌙 Mode clair / sombre</button>
+          <button id="tashkeelToggle">Short vowels</button>
+          <button id="themeToggle">🌙 Light / Dark</button>
         </div>
 
         <div id="tashkeelRow"></div>
-        <div class="kbd" id="keyboard" aria-label="Clavier arabe virtuel"></div>
+        <div class="kbd" id="keyboard" aria-label="Virtual Arabic keyboard"></div>
         
         <div id="tips">
-          <p>💡 Astuces :</p>
+          <p>💡 Tips:</p>
           <ul>
-            <li>Cliquez sur une touche pour l’insérer dans le texte.</li>
-            <li>Utilisez RTL/LTR pour changer la direction du texte.</li>
-            <li>Mode clair/sombre disponible via le bouton 🌙.</li>
+            <li>Click on a key to insert it in the text.</li>
+            <li>Use RTL/LTR to change text direction.</li>
+            <li>Toggle Light/Dark mode with the 🌙 button.</li>
           </ul>
         </div>
       </section>
@@ -44,7 +45,7 @@
 
   <footer>
     <p>
-      Fait avec ❤ pour l'apprentissage des langues. Open-source, prêt à héberger sur GitHub Pages.
+      Made with ❤ for language learning. Open-source and ready for GitHub Pages.
     </p>
   </footer>
 
