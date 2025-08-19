@@ -5,25 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Clavier Arabe – Utilitaire en ligne</title>
   <meta name="description" content="Écrivez en arabe en ligne : clavier virtuel, voyelles courtes, copier, télécharger.">
-  <link rel="stylesheet" href="style.css">
   <link rel="icon" href="assets/favicon.ico" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
     <h1>Clavier Arabe <span class="badge">MVP</span></h1>
-    <div class="header-links">
-      <span class="tag">Open-source</span>
-      <a id="githubLink" class="tag" href="#" target="_blank" rel="noopener">Code GitHub</a>
-    </div>
   </header>
 
   <main>
     <div class="grid">
       <section class="box editor">
-        <div class="textarea-wrap">
-          <textarea id="out" placeholder="اكتب هنا… (Écrivez ici)"></textarea>
-          <div class="hint">Direction RTL • Tashkīl disponibles</div>
-        </div>
+        <textarea id="out" placeholder="اكتب هنا… (Écrivez ici)"></textarea>
         <div class="toolbar">
           <button id="copyBtn">Copier</button>
           <button id="clearBtn">Effacer</button>
@@ -31,31 +24,22 @@
           <button id="rtlBtn">RTL</button>
           <button id="ltrBtn">LTR</button>
           <button id="tashkeelToggle">Voyelles courtes</button>
+          <button id="themeToggle">🌙 Mode clair / sombre</button>
         </div>
         <div class="kbd" id="keyboard" aria-label="Clavier arabe virtuel"></div>
-      </section>
-
-      <aside class="box">
-        <h3>Astuces</h3>
-        <ul>
-          <li>Le texte s'écrit de droite à gauche (RTL). Utilisez <b>RTL/LTR</b> pour changer l'orientation si besoin.</li>
-          <li>Ajoutez les voyelles courtes (Tashkīl) via le bouton <b>Voyelles courtes</b>.</li>
-          <li>Utilisez <b>Copier</b> ou <b>Télécharger</b> pour réutiliser le texte.</li>
-        </ul>
-        <hr>
-        <h4>Tashkīl</h4>
         <div class="row" id="tashkeelRow"></div>
-      </aside>
+      </section>
     </div>
   </main>
 
   <footer>
     <p>
-      Fait avec ❤ pour l'apprentissage des langues. 
+      Fait avec ❤ pour l'apprentissage des langues. Open-source, prêt à héberger sur GitHub Pages.
     </p>
   </footer>
 
   <script src="script.js"></script>
 </body>
 </html>
+
 
