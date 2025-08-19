@@ -12,7 +12,6 @@ header{
 }
 header h1{margin:0; font-size:20px}
 .badge{background:var(--accent); color:#000; padding:4px 8px; border-radius:999px; font-size:12px}
-.tag{font-size:12px; padding:4px 8px; border:1px solid rgba(255,255,255,0.2); border-radius:999px}
 main{max-width:1100px; margin:28px auto; padding:0 16px}
 .grid{display:grid; gap:16px}
 .box{background:var(--panel); padding:16px; border-radius:16px; transition: background 0.3s;}
@@ -32,7 +31,7 @@ button:hover{background:#223160}
 .key{min-width:40px; padding:10px; border-radius:8px; background:#162045; cursor:pointer; transition: background 0.1s, transform 0.1s;}
 .key:hover{background:#1b2a58}
 .key:active{transform:scale(0.95); background:#2a3b6f;}
-.row{display:flex; gap:8px; flex-wrap:wrap; justify-content:center}
+.row{display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin-top:8px}
 
 /* Mode clair */
 body.light{
