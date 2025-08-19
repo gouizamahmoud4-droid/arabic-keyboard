@@ -4,6 +4,7 @@
 }
 body{
   margin:0; font-family:sans-serif; background:var(--bg); color:var(--text);
+  transition: background 0.3s, color 0.3s;
 }
 header{
   padding:16px 20px; display:flex; justify-content:space-between; align-items:center;
@@ -14,17 +15,36 @@ header h1{margin:0; font-size:20px}
 .tag{font-size:12px; padding:4px 8px; border:1px solid rgba(255,255,255,0.2); border-radius:999px}
 main{max-width:1100px; margin:28px auto; padding:0 16px}
 .grid{display:grid; gap:16px}
-.box{background:var(--panel); padding:16px; border-radius:16px}
+.box{background:var(--panel); padding:16px; border-radius:16px; transition: background 0.3s;}
 textarea{
   width:100%; min-height:220px; border:1px solid rgba(255,255,255,0.2);
   border-radius:12px; background:#111a30; color:var(--text);
   padding:12px; font-size:18px; line-height:1.5; direction:rtl; resize:vertical;
+  transition: background 0.3s, color 0.3s;
 }
 .toolbar{display:flex; gap:8px; flex-wrap:wrap; margin:8px 0}
-button{background:#1b2547; border:1px solid rgba(255,255,255,0.2);
-  color:var(--text); padding:8px 14px; border-radius:12px; cursor:pointer}
+button{
+  background:#1b2547; border:1px solid rgba(255,255,255,0.2);
+  color:var(--text); padding:8px 14px; border-radius:12px; cursor:pointer;
+  transition: background 0.2s, transform 0.1s;
+}
 button:hover{background:#223160}
-.kbd{display:grid; gap:8px; margin-top:12px}
-.row{display:flex; gap:8px; flex-wrap:wrap; justify-content:center}
-.key{min-width:40px; padding:10px; border-radius:8px; background:#162045; cursor:pointer}
+.key{min-width:40px; padding:10px; border-radius:8px; background:#162045; cursor:pointer; transition: background 0.1s, transform 0.1s;}
 .key:hover{background:#1b2a58}
+.key:active{transform:scale(0.95); background:#2a3b6f;}
+.row{display:flex; gap:8px; flex-wrap:wrap; justify-content:center}
+
+/* Mode clair */
+body.light{
+  --bg:#f5f5f5;
+  --panel:#ffffff;
+  --muted:#555;
+  --text:#111;
+  --accent:#4cc9f0;
+}
+body.light .box{background:var(--panel);}
+body.light textarea{background:#fff; color:var(--text);}
+body.light button{background:#e0e0e0; color:var(--text);}
+body.light button:hover{background:#cfd8dc;}
+body.light .key{background:#d0d0d0; color:#111;}
+body.light .key:active{background:#b0b0b0;}
