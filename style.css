@@ -33,6 +33,18 @@ button:hover{background:#223160}
 .key:active{transform:scale(0.95); background:#2a3b6f;}
 .row{display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin-top:8px}
 
+/* Tashkeel */
+#tashkeelRow {
+  display: none; /* masqué par défaut */
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end; /* aligné à droite */
+  margin-top: 8px;
+}
+
+/* Astuces */
+#tips {margin-top:16px; font-size:14px; color:var(--muted);}
+
 /* Mode clair */
 body.light{
   --bg:#f5f5f5;
