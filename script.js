@@ -50,13 +50,13 @@ function backspaceAtCursor(){
 
 copyBtn.addEventListener('click', async ()=>{
   await navigator.clipboard.writeText(out.value);
-  copyBtn.textContent='✔ Copié'; setTimeout(()=>copyBtn.textContent='Copier',1200);
+  copyBtn.textContent='✔ Copied'; setTimeout(()=>copyBtn.textContent='Copy',1200);
 });
 clearBtn.addEventListener('click', ()=> out.value='');
 downloadBtn.addEventListener('click', ()=>{
   const blob=new Blob([out.value],{type:'text/plain;charset=utf-8'});
   const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
-  a.download='texte-arabe.txt'; a.click(); URL.revokeObjectURL(a.href);
+  a.download='arabic-text.txt'; a.click(); URL.revokeObjectURL(a.href);
 });
 rtlBtn.addEventListener('click', ()=> out.style.direction='rtl');
 ltrBtn.addEventListener('click', ()=> out.style.direction='ltr');
