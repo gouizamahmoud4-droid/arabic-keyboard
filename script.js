@@ -41,6 +41,7 @@ function insertChar(ch){
   out.value=out.value.slice(0,start)+ch+out.value.slice(end);
   out.setSelectionRange(start+ch.length,start+ch.length); out.focus();
 }
+
 function backspaceAtCursor(){
   const start=out.selectionStart; const end=out.selectionEnd;
   if(start===end && start>0){ out.value=out.value.slice(0,start-1)+out.value.slice(end); out.setSelectionRange(start-1,start-1);}
@@ -60,7 +61,7 @@ downloadBtn.addEventListener('click', ()=>{
 rtlBtn.addEventListener('click', ()=> out.style.direction='rtl');
 ltrBtn.addEventListener('click', ()=> out.style.direction='ltr');
 tashkeelToggle.addEventListener('click', ()=>{
-  tashkeelRow.style.display = tashkeelRow.style.display==='none' ? 'flex' : 'none';
+  tashkeelRow.style.display = tashkeelRow.style.display==='none' ? 'flex' : 'flex';
 });
 themeToggle.addEventListener('click', ()=> document.body.classList.toggle('light'));
 
