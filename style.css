@@ -1,61 +1,162 @@
 :root{
-  --bg:#0b1020; --panel:#121a33; --muted:#8aa3c2; 
-  --text:#e8f0ff; --accent:#4cc9f0;
+  --bg-gradient: linear-gradient(135deg, #1f1c2c, #928dab);
+  --panel: rgba(255,255,255,0.05);
+  --text:#e8f0ff; 
+  --accent:#4cc9f0;
+  --btn-bg:#2e2b44;
+  --btn-hover:#4c4a6a;
+  --key-bg:#3b3a56;
+  --key-hover:#5a5a80;
+  --key-active:#6a6aa0;
+  --tips-bg: rgba(255,255,255,0.05);
 }
 body{
-  margin:0; font-family:sans-serif; background:var(--bg); color:var(--text);
+  margin:0; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg-gradient); color:var(--text);
   transition: background 0.3s, color 0.3s;
 }
 header{
-  padding:16px 20px; display:flex; justify-content:space-between; align-items:center;
-  background:rgba(255,255,255,0.05); border-bottom:1px solid rgba(255,255,255,0.1);
+  padding:16px 20px; display:flex; justify-content:center; align-items:center;
+  font-weight:600; font-size:22px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
-header h1{margin:0; font-size:20px}
-.badge{background:var(--accent); color:#000; padding:4px 8px; border-radius:999px; font-size:12px}
-main{max-width:1100px; margin:28px auto; padding:0 16px}
-.grid{display:grid; gap:16px}
-.box{background:var(--panel); padding:16px; border-radius:16px; transition: background 0.3s;}
+.badge{
+  background: var(--accent); color:#000; padding:4px 10px; border-radius:999px; font-size:12px; margin-left:8px;
+}
+
+main{max-width:1100px; margin:28px auto; padding:0 16px;}
+.grid{display:grid; gap:16px;}
+.box{
+  background: rgba(255,255,255,0.1); padding:20px; border-radius:24px; 
+  backdrop-filter: blur(10px); box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  transition: all 0.3s;
+}
 textarea{
-  width:100%; min-height:220px; border:1px solid rgba(255,255,255,0.2);
-  border-radius:12px; background:#111a30; color:var(--text);
-  padding:12px; font-size:18px; line-height:1.5; direction:rtl; resize:vertical;
-  transition: background 0.3s, color 0.3s;
+  width:100%; min-height:220px; border:none;
+  border-radius:16px; background: rgba(255,255,255,0.1); color:var(--text);
+  padding:14px; font-size:18px; line-height:1.5; direction:rtl; resize:vertical;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s;
 }
-.toolbar{display:flex; gap:8px; flex-wrap:wrap; margin:8px 0}
+textarea:focus{outline:none; box-shadow: 0 0 10px var(--accent);}
+
+.toolbar{
+  display:flex; gap:10px; flex-wrap:wrap; margin:12px 0;
+}
 button{
-  background:#1b2547; border:1px solid rgba(255,255,255,0.2);
-  color:var(--text); padding:8px 14px; border-radius:12px; cursor:pointer;
-  transition: background 0.2s, transform 0.1s;
+  background: var(--btn-bg); border:none; color:var(--text);
+  padding:10px 16px; border-radius:16px; cursor:pointer; font-weight:500;
+  transition: transform 0.1s, background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
-button:hover{background:#223160}
-.key{min-width:40px; padding:10px; border-radius:8px; background:#162045; cursor:pointer; transition: background 0.1s, transform 0.1s;}
-.key:hover{background:#1b2a58}
-.key:active{transform:scale(0.95); background:#2a3b6f;}
-.row{display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin-top:8px}
-
-/* Tashkeel */
-#tashkeelRow {
-  display: none; /* masqué par défaut */
-  gap: 8px;
-  flex-wrap: wrap;
-  justify-content: flex-end; /* aligné à droite */
-  margin-top: 8px;
+button:hover{
+  background: var(--btn-hover); transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.3);
 }
 
-/* Astuces */
-#tips {margin-top:16px; font-size:14px; color:var(--muted);}
+.key{
+  min-width:45px; padding:14px; border-radius:12px;
+  background: var(--key-bg); color:var(--text);
+  cursor:pointer; font-weight:600; font-size:16px;
+  transition: transform 0.1s, background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+.key:hover{background: var(--key-hover); transform: translateY(-2px);}
+.key:active{background: var(--key-active); transform: translateY(1px);}
+
+.row{display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin-top:8px;}
+#tashkeelRow{display:none; justify-content:flex-end;}
+
+#tips{
+  margin-top:16px; font-size:14px; color:var(--text);
+  background: var(--tips-bg); padding:10px 14px; border-radius:14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
 
 /* Mode clair */
 body.light{
-  --bg:#f5f5f5;
-  --panel:#ffffff;
-  --muted:#555;
+  --bg-gradient: linear-gradient(135deg, #f5f5f5, #d0d0d0);
   --text:#111;
-  --accent:#4cc9f0;
+  --btn-bg:#e0e0e0;
+  --btn-hover:#cfd8dc;
+  --key-bg:#d0d0d0;
+  --key-hover:#b0b0b0;
+  --key-active:#999;
+  --tips-bg: rgba(0,0,0,0.05);
 }
-body.light .box{background:var(--panel);}
-body.light textarea{background:#fff; color:var(--text);}
-body.light button{background:#e0e0e0; color:var(--text);}
-body.light button:hover{background:#cfd8dc;}
-body.light .key{background:#d0d0d0; color:#111;}
-body.light .key:active{background:#b0b0b0;}
+body.light .box{background: rgba(255,255,255,0.6);}
+body.light textarea{background: rgba(255,255,255,0.6);}
+3️⃣ script.js (inchangé, fonctionne avec Tashkeel)
+js
+Copier
+Modifier
+const out = document.getElementById('out');
+const keyboard = document.getElementById('keyboard');
+const copyBtn = document.getElementById('copyBtn');
+const clearBtn = document.getElementById('clearBtn');
+const downloadBtn = document.getElementById('downloadBtn');
+const rtlBtn = document.getElementById('rtlBtn');
+const ltrBtn = document.getElementById('ltrBtn');
+const tashkeelToggle = document.getElementById('tashkeelToggle');
+const tashkeelRow = document.getElementById('tashkeelRow');
+const themeToggle = document.getElementById('themeToggle');
+
+const rows = [
+  ['ض','ص','ث','ق','ف','غ','ع','ه','خ','ح','ج','د'],
+  ['ش','س','ي','ب','ل','ا','ت','ن','م','ك','ط'],
+  ['ئ','ء','ؤ','ر','لا','ى','ة','و','ز','ظ'],
+  ['،','؟','؛','ـ','⌫','␣']
+];
+const tashkeel = ['َ','ِ','ُ','ّ','ً','ٍ','ٌ','ْ','ٰ'];
+
+function makeRow(chars){
+  const div = document.createElement('div'); div.className='row';
+  chars.forEach(ch=>{
+    const b=document.createElement('button'); b.className='key'; b.textContent=ch;
+    b.addEventListener('click', ()=> insertChar(ch));
+    div.appendChild(b);
+  });
+  return div;
+}
+
+function renderKeyboard(){ rows.forEach(r=>keyboard.appendChild(makeRow(r))); }
+function renderTashkeel(){ tashkeel.forEach(ch=>{
+  const b=document.createElement('button'); b.className='key'; b.textContent=ch;
+  b.addEventListener('click', ()=> insertChar(ch));
+  tashkeelRow.appendChild(b);
+}); }
+
+function insertChar(ch){
+  if(ch==='⌫'){ backspaceAtCursor(); return; }
+  if(ch==='␣') ch=' ';
+  const start=out.selectionStart; const end=out.selectionEnd;
+  out.value=out.value.slice(0,start)+ch+out.value.slice(end);
+  out.setSelectionRange(start+ch.length,start+ch.length); out.focus();
+}
+
+function backspaceAtCursor(){
+  const start=out.selectionStart; const end=out.selectionEnd;
+  if(start===end && start>0){ out.value=out.value.slice(0,start-1)+out.value.slice(end); out.setSelectionRange(start-1,start-1);}
+  else{ out.value=out.value.slice(0,start)+out.value.slice(end); out.setSelectionRange(start,start);}
+}
+
+copyBtn.addEventListener('click', async ()=>{
+  await navigator.clipboard.writeText(out.value);
+  copyBtn.textContent='✔ Copié'; setTimeout(()=>copyBtn.textContent='Copier',1200);
+});
+clearBtn.addEventListener('click', ()=> out.value='');
+downloadBtn.addEventListener('click', ()=>{
+  const blob=new Blob([out.value],{type:'text/plain;charset=utf-8'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download='texte-arabe.txt'; a.click(); URL.revokeObjectURL(a.href);
+});
+rtlBtn.addEventListener('click', ()=> out.style.direction='rtl');
+ltrBtn.addEventListener('click', ()=> out.style.direction='ltr');
+
+tashkeelToggle.addEventListener('click', ()=>{
+  tashkeelRow.style.display = tashkeelRow.style.display==='none' ? 'flex' : 'none';
+});
+
+themeToggle.addEventListener('click', ()=> document.body.classList.toggle('light'));
+
+renderKeyboard(); renderTashkeel();
