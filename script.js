@@ -60,9 +60,11 @@ downloadBtn.addEventListener('click', ()=>{
 });
 rtlBtn.addEventListener('click', ()=> out.style.direction='rtl');
 ltrBtn.addEventListener('click', ()=> out.style.direction='ltr');
+
 tashkeelToggle.addEventListener('click', ()=>{
-  tashkeelRow.style.display = tashkeelRow.style.display==='none' ? 'flex' : 'flex';
+  tashkeelRow.style.display = tashkeelRow.style.display==='none' ? 'flex' : 'none';
 });
+
 themeToggle.addEventListener('click', ()=> document.body.classList.toggle('light'));
 
 renderKeyboard(); renderTashkeel();
