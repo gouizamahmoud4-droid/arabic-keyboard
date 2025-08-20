@@ -53,90 +53,114 @@ header h1 {
 .box {
   background: #fff;
   border-radius: 12px;
-  padding: 1rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  width: 90%;
-  max-width: 900px;
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+  width: 95%;
+  max-width: 950px;
 }
 
+/* Zone de texte */
 textarea {
   width: 100%;
-  height: 150px;
-  padding: 10px;
-  font-size: 18px;
+  height: 180px;
+  padding: 12px;
+  font-size: 20px;
   border: 2px solid var(--accent);
-  border-radius: 8px;
-  margin-bottom: 10px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  resize: vertical;
 }
 
+/* Barre d’outils */
 .toolbar {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 10px;
+  gap: 10px;
+  margin-bottom: 15px;
+  justify-content: center;
 }
 
 button {
   background: var(--accent);
   color: #fff;
   border: none;
-  padding: 8px 12px;
+  padding: 10px 16px;
   border-radius: 8px;
   cursor: pointer;
+  font-size: 16px;
+  min-width: 100px;
+  text-align: center;
 }
 
 button:hover {
   opacity: 0.9;
 }
 
+/* Clavier */
 .kbd {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
+  margin-top: 15px;
 }
 
 .row {
   display: flex;
-  flex-direction: row-reverse; /* 🔥 clavier inversé droite -> gauche */
+  flex-direction: row-reverse; /* clavier inversé */
   justify-content: center;
-  gap: 6px;
+  gap: 8px;
 }
 
+/* Boutons de clavier */
 .key {
-  min-width: 45px;
+  min-width: 55px;
+  min-height: 55px;
   padding: 12px;
   background: var(--key-bg);
   border: 2px solid var(--accent);
-  border-radius: 8px;
+  border-radius: 10px;
   text-align: center;
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: bold;
   cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
 }
 
 .key:hover {
   background: var(--accent);
   color: #fff;
+  transform: scale(1.05);
 }
 
+/* Voyelles courtes plus grandes */
 #tashkeelRow {
   display: none;
   justify-content: flex-end;
-  gap: 6px;
-  margin: 10px 0;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 15px 0;
+}
+
+#tashkeelRow .key {
+  min-width: 50px;
+  min-height: 50px;
+  font-size: 22px;
+  font-weight: bold;
 }
 
 #tips {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   margin-top: 1rem;
   color: #555;
   background: #fafafa;
-  padding: 10px;
-  border-radius: 8px;
+  padding: 12px;
+  border-radius: 10px;
+  line-height: 1.5;
 }
 
 footer {
   text-align: center;
   padding: 1rem;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: #777;
 }
