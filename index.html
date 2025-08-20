@@ -1,64 +1,56 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ArabiBoard – Online Arabic Keyboard</title>
-  <meta name="description" content="Write in Arabic online: virtual keyboard, short vowels, copy, download.">
-  <link rel="icon" href="assets/favicon.ico" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ArabiBoard - Write Arabic instantly, anywhere</title>
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <link rel="icon" href="assets/favicon.ico">
 </head>
 <body>
   <header>
-    <h1>ArabiBoard</h1>
-    <p class="slogan">Write Arabic instantly, anywhere</p>
+    <div>
+      <h1>ArabiBoard</h1>
+      <p class="slogan">Write Arabic instantly, anywhere</p>
+    </div>
     <div class="theme-selector">
-      <div class="color-swatch" data-theme="light" style="background:#ffffff"></div>
-      <div class="color-swatch" data-theme="dark" style="background:#2c3e50"></div>
-      <div class="color-swatch" data-theme="blue" style="background:#3498db"></div>
-      <div class="color-swatch" data-theme="green" style="background:#2ecc71"></div>
-      <div class="color-swatch" data-theme="red" style="background:#e74c3c"></div>
-      <div class="color-swatch" data-theme="violet" style="background:#9b59b6"></div>
-      <div class="color-swatch" data-theme="orange" style="background:#f39c12"></div>
-      <div class="color-swatch" data-theme="yellow" style="background:#f1c40f"></div>
-      <div class="color-swatch" data-theme="brown" style="background:#8e5a3c"></div>
+      <div class="color-swatch" data-color="light" style="background:#ffffff"></div>
+      <div class="color-swatch" data-color="dark" style="background:#2c3e50"></div>
+      <div class="color-swatch" data-color="blue" style="background:#3498db"></div>
+      <div class="color-swatch" data-color="green" style="background:#2ecc71"></div>
+      <div class="color-swatch" data-color="red" style="background:#e74c3c"></div>
+      <div class="color-swatch" data-color="purple" style="background:#9b59b6"></div>
+      <div class="color-swatch" data-color="orange" style="background:#f39c12"></div>
+      <div class="color-swatch" data-color="yellow" style="background:#f1c40f"></div>
+      <div class="color-swatch" data-color="brown" style="background:#8e5a3c"></div>
     </div>
   </header>
 
-  <main>
-    <div class="grid">
-      <section class="box editor">
-        <textarea id="out" placeholder="اكتب هنا… (Write here)"></textarea>
-        <div class="toolbar">
-          <button id="copyBtn">Copy</button>
-          <button id="clearBtn">Clear</button>
-          <button id="downloadBtn">Download .txt</button>
-          <button id="rtlBtn">RTL</button>
-          <button id="ltrBtn">LTR</button>
-          <button id="tashkeelToggle">Short vowels</button>
-        </div>
+  <main class="grid">
+    <div class="box">
+      <textarea id="output" placeholder="اكتب هنا..."></textarea>
 
-        <div id="tashkeelRow"></div>
-        <div class="kbd" id="keyboard" aria-label="Virtual Arabic keyboard"></div>
-        
-        <div id="tips">
-          <p>💡 Tips:</p>
-          <ul>
-            <li>Click on a key to insert it in the text.</li>
-            <li>Use RTL/LTR to change text direction.</li>
-            <li>Choose your favorite color theme in the top right.</li>
-          </ul>
-        </div>
-      </section>
+      <div class="toolbar">
+        <button onclick="copyText()">📋 Copier</button>
+        <button onclick="clearText()">🗑 Effacer</button>
+        <button onclick="downloadText()">💾 Télécharger</button>
+        <button onclick="toggleDirection()">🔄 RTL/LTR</button>
+        <button onclick="toggleTashkeel()">َ Voyelles courtes</button>
+      </div>
+
+      <div id="tashkeelRow"></div>
+      <div class="kbd" id="keyboard"></div>
+
+      <div id="tips">
+        💡 Astuce : Cliquez sur une lettre pour l’ajouter.  
+        Utilisez "Voyelles courtes" pour ajouter les signes diacritiques.  
+      </div>
     </div>
   </main>
 
   <footer>
-    <p>
-      Made with ❤ for language learning. Open-source and ready for GitHub Pages.
-    </p>
+    <p>© 2025 ArabiBoard. All rights reserved.</p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
