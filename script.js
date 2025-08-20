@@ -1,84 +1,97 @@
-// Alphabet arabe en ordre
-const rows = [
-  ['ا','ب','ت','ث','ج','ح','خ','د','ذ','ر','ز','س'],
-  ['ش','ص','ض','ط','ظ','ع','غ','ف','ق','ك','ل','م'],
-  ['ن','هـ','و','ي','ء','ؤ','ئ','لا','ة','ى'],
-  ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'],
-  ['،','؛','؟','…','⌫','␣']
+const output = document.getElementById("output");
+const keyboard = document.getElementById("keyboard");
+const tashkeelRow = document.getElementById("tashkeelRow");
+
+const letters = [
+  "ا","ب","ت","ث","ج","ح","خ","د","ذ","ر","ز","س",
+  "ش","ص","ض","ط","ظ","ع","غ","ف","ق","ك","ل","م",
+  "ن","ه","و","ي"
 ];
 
-// Voyelles courtes
-const tashkeel = ['َ','ً','ُ','ٌ','ِ','ٍ','ْ','ّ'];
+const numbers = ["٠","١","٢","٣","٤","٥","٦","٧","٨","٩"];
+const punctuation = ["،","؛","؟","."];
+const tashkeel = ["َ","ً","ُ","ٌ","ِ","ٍ","ْ","ّ"];
 
-// Générer clavier
-const kb = document.getElementById("keyboard");
-rows.forEach(row => {
-  const div = document.createElement("div");
-  div.className = "row";
-  row.forEach(key => {
-    const btn = document.createElement("div");
-    btn.className = "key";
-    btn.textContent = key;
-    btn.addEventListener("click", () => {
-      if(key === '⌫'){
-        out.value = out.value.slice(0,-1);
-      } else if(key === '␣'){
-        out.value += " ";
-      } else {
-        out.value += key;
-      }
-    });
-    div.appendChild(btn);
+function createKeyboard() {
+  const allKeys = [...letters, ...numbers, ...punctuation];
+  let row = document.createElement("div");
+  row.className = "row";
+  allKeys.forEach((char, i) => {
+    const key = document.createElement("div");
+    key.className = "key";
+    key.textContent = char;
+    key.onclick = () => output.value += char;
+    row.appendChild(key);
+    if ((i+1) % 11 === 0) {
+      keyboard.appendChild(row);
+      row = document.createElement("div");
+      row.className = "row";
+    }
   });
-  kb.appendChild(div);
-});
+  if (row.children.length > 0) keyboard.appendChild(row);
+}
 
-// Voyelles
-const tr = document.getElementById("tashkeelRow");
-tashkeel.forEach(v => {
-  const btn = document.createElement("div");
-  btn.className = "key";
-  btn.textContent = v;
-  btn.addEventListener("click", () => out.value += v);
-  tr.appendChild(btn);
-});
-document.getElementById("tashkeelToggle").onclick = () => {
-  tr.style.display = tr.style.display === "none" ? "flex" : "none";
-};
+function createTashkeel() {
+  tashkeel.forEach(char => {
+    const key = document.createElement("div");
+    key.className = "key";
+    key.textContent = char;
+    key.onclick = () => output.value += char;
+    tashkeelRow.appendChild(key);
+  });
+}
 
-// Zone texte
-const out = document.getElementById("out");
-document.getElementById("copyBtn").onclick = () => {out.select(); document.execCommand("copy");};
-document.getElementById("clearBtn").onclick = () => out.value = "";
-document.getElementById("downloadBtn").onclick = () => {
-  const blob = new Blob([out.value], { type: "text/plain" });
-  const a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
-  a.download = "arabiboard.txt";
-  a.click();
-};
-document.getElementById("rtlBtn").onclick = () => out.dir = "rtl";
-document.getElementById("ltrBtn").onclick = () => out.dir = "ltr";
+function copyText() {
+  output.select();
+  document.execCommand("copy");
+  alert("Texte copié !");
+}
 
-// 🎨 Themes
+function clearText() {
+  output.value = "";
+}
+
+function downloadText() {
+  const blob = new Blob([output.value], { type: "text/plain" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "arabiboard.txt";
+  link.click();
+}
+
+function toggleDirection() {
+  output.dir = (output.dir === "rtl") ? "ltr" : "rtl";
+}
+
+function toggleTashkeel() {
+  tashkeelRow.style.display = (tashkeelRow.style.display === "flex") ? "none" : "flex";
+}
+
+/* Thèmes */
 const themes = {
-  light: {bg:"#ffffff", text:"#2c3e50", key:"#ecf0f1", accent:"#3498db"},
-  dark: {bg:"#2c3e50", text:"#ecf0f1", key:"#34495e", accent:"#e67e22"},
-  blue: {bg:"#ecf6fc", text:"#2c3e50", key:"#ffffff", accent:"#3498db"},
-  green: {bg:"#eafaf1", text:"#2c3e50", key:"#ffffff", accent:"#2ecc71"},
-  red: {bg:"#fdecea", text:"#2c3e50", key:"#ffffff", accent:"#e74c3c"},
-  violet: {bg:"#f6ecfc", text:"#2c3e50", key:"#ffffff", accent:"#9b59b6"},
-  orange: {bg:"#fff5e6", text:"#2c3e50", key:"#ffffff", accent:"#f39c12"},
-  yellow: {bg:"#fffde7", text:"#2c3e50", key:"#ffffff", accent:"#f1c40f"},
-  brown: {bg:"#f9f3f0", text:"#2c3e50", key:"#ffffff", accent:"#8e5a3c"},
+  light: { bg: "#ffffff", text: "#2c3e50", key: "#f9f9f9", accent: "#3498db" },
+  dark: { bg: "#2c3e50", text: "#ecf0f1", key: "#34495e", accent: "#e67e22" },
+  blue: { bg: "#eaf6ff", text: "#2c3e50", key: "#ffffff", accent: "#3498db" },
+  green: { bg: "#eafaf1", text: "#2c3e50", key: "#ffffff", accent: "#2ecc71" },
+  red: { bg: "#fdecea", text: "#2c3e50", key: "#ffffff", accent: "#e74c3c" },
+  purple: { bg: "#f7eafc", text: "#2c3e50", key: "#ffffff", accent: "#9b59b6" },
+  orange: { bg: "#fff4e6", text: "#2c3e50", key: "#ffffff", accent: "#f39c12" },
+  yellow: { bg: "#fffde7", text: "#2c3e50", key: "#ffffff", accent: "#f1c40f" },
+  brown: { bg: "#f3e6e1", text: "#2c3e50", key: "#ffffff", accent: "#8e5a3c" },
 };
 
 document.querySelectorAll(".color-swatch").forEach(swatch => {
   swatch.addEventListener("click", () => {
-    const t = themes[swatch.dataset.theme];
-    document.documentElement.style.setProperty("--bg", t.bg);
-    document.documentElement.style.setProperty("--text", t.text);
-    document.documentElement.style.setProperty("--key-bg", t.key);
-    document.documentElement.style.setProperty("--accent", t.accent);
+    const theme = themes[swatch.dataset.color];
+    if (theme) {
+      document.documentElement.style.setProperty("--bg", theme.bg);
+      document.documentElement.style.setProperty("--text", theme.text);
+      document.documentElement.style.setProperty("--key-bg", theme.key);
+      document.documentElement.style.setProperty("--accent", theme.accent);
+    }
   });
 });
+
+/* Init */
+createKeyboard();
+createTashkeel();
