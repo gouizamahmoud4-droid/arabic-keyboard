@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="rtl">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ArabiBoard – Online Arabic Keyboard</title>
-  <meta name="description" content="Write in Arabic online: virtual keyboard, short vowels, copy, download.">
+  <meta name="description" content="Write in Arabic online: virtual keyboard, numbers, punctuation, short vowels.">
   <link rel="icon" href="assets/favicon.ico" />
   <link rel="stylesheet" href="style.css">
 </head>
@@ -12,6 +12,16 @@
   <header>
     <h1>ArabiBoard</h1>
     <p class="slogan">Write Arabic instantly, anywhere</p>
+    <div id="themeSelector">
+      <span class="color-box" data-theme="light" style="background:#ffffff; border:1px solid #ccc"></span>
+      <span class="color-box" data-theme="dark" style="background:#2c3e50"></span>
+      <span class="color-box" data-theme="blue" style="background:#3498db"></span>
+      <span class="color-box" data-theme="green" style="background:#2ecc71"></span>
+      <span class="color-box" data-theme="red" style="background:#e74c3c"></span>
+      <span class="color-box" data-theme="violet" style="background:#9b59b6"></span>
+      <span class="color-box" data-theme="orange" style="background:#f39c12"></span>
+      <span class="color-box" data-theme="yellow" style="background:#f1c40f"></span>
+    </div>
   </header>
 
   <main>
@@ -25,7 +35,6 @@
           <button id="rtlBtn">RTL</button>
           <button id="ltrBtn">LTR</button>
           <button id="tashkeelToggle">Short vowels</button>
-          <button id="themeToggle">🌙 Light / Dark</button>
         </div>
 
         <div id="tashkeelRow"></div>
@@ -36,7 +45,7 @@
           <ul>
             <li>Click on a key to insert it in the text.</li>
             <li>Use RTL/LTR to change text direction.</li>
-            <li>Toggle Light/Dark mode with the 🌙 button.</li>
+            <li>Pick a color theme from the top-right palette.</li>
           </ul>
         </div>
       </section>
@@ -45,7 +54,7 @@
 
   <footer>
     <p>
-      Made with ❤ for language learning. Open-source and ready for GitHub Pages.
+      Made with ❤ for learners. Open-source on GitHub.
     </p>
   </footer>
 
