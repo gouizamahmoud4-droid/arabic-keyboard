@@ -1,47 +1,60 @@
 :root {
-  --bg: #f4f4f4;
+  --bg: #ffffff;
   --text: #2c3e50;
-  --key-bg: #ffffff;
   --accent: #3498db;
+  --key-bg: #ecf0f1;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
+  font-family: "Cairo", sans-serif;
   background: var(--bg);
   color: var(--text);
-  transition: all 0.3s;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
+/* HEADER */
 header {
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-direction: row-reverse;
 }
 
-/* Logo + slogan */
+/* Logo stylé */
 .logo {
   text-decoration: none;
   color: inherit;
+  text-align: right;
 }
 
 .logo h1 {
   margin: 0;
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 2.3rem;
+  font-family: "Cairo", sans-serif;
+  font-weight: 800;
+  letter-spacing: 1px;
   background: linear-gradient(90deg, var(--accent), #e67e22);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
 
 .logo .slogan {
-  font-size: 1rem;
+  font-size: 1.1rem;
+  font-family: "Amiri", serif;
   font-style: italic;
-  color: #555;
-  margin-top: 0.3rem;
+  color: var(--text);
+  margin-top: 0.2rem;
+  text-align: right;
+  opacity: 0.8;
 }
 
+/* Palette couleurs */
 .theme-selector {
   display: flex;
   gap: 8px;
@@ -50,98 +63,84 @@ header {
 .color-swatch {
   width: 22px;
   height: 22px;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
-  border: 2px solid #ddd;
+  border: 2px solid #ccc;
   transition: transform 0.2s;
 }
-
 .color-swatch:hover {
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 
-.grid {
+/* MAIN */
+main {
+  flex: 1;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
   padding: 1rem;
 }
 
 .box {
   background: #fff;
+  padding: 1.5rem;
   border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.12);
-  width: 95%;
-  max-width: 950px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  max-width: 900px;
+  width: 100%;
 }
 
-/* Zone de texte */
 textarea {
   width: 100%;
-  height: 180px;
-  padding: 12px;
-  font-size: 20px;
+  height: 150px;
+  font-size: 1.2rem;
+  padding: 10px;
   border: 2px solid var(--accent);
-  border-radius: 10px;
-  margin-bottom: 15px;
-  resize: vertical;
+  border-radius: 8px;
+  resize: none;
 }
 
-/* Barre d’outils */
 .toolbar {
+  margin-top: 1rem;
   display: flex;
-  flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 15px;
-  justify-content: center;
+  flex-wrap: wrap;
 }
 
-button {
+.toolbar button {
+  padding: 8px 14px;
   background: var(--accent);
   color: #fff;
   border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 16px;
-  min-width: 100px;
-  text-align: center;
+  font-size: 0.9rem;
+}
+.toolbar button:hover {
+  opacity: 0.8;
 }
 
-button:hover {
-  opacity: 0.9;
-}
-
-/* Clavier */
+/* CLAVIER */
 .kbd {
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-top: 15px;
+  gap: 8px;
 }
 
-.row {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: center;
-  gap: 6px;
-}
-
-/* Boutons du clavier */
 .key {
   min-width: 45px;
   min-height: 45px;
-  padding: 6px;
+  padding: 8px;
   background: var(--key-bg);
   border: 2px solid var(--accent);
   border-radius: 8px;
   text-align: center;
-  font-size: 22px;   /* Caractères grands */
+  font-size: 22px;
   font-weight: bold;
   cursor: pointer;
   transition: background 0.2s, transform 0.1s;
 }
-
 .key:hover {
   background: var(--accent);
   color: #fff;
@@ -150,33 +149,29 @@ button:hover {
 
 /* Voyelles courtes */
 #tashkeelRow {
-  display: none;
-  justify-content: flex-end;
-  flex-wrap: wrap;
+  display: flex;
   gap: 6px;
-  margin: 15px 0;
+  margin-top: 1rem;
 }
-
 #tashkeelRow .key {
   min-width: 40px;
   min-height: 40px;
-  font-size: 28px;  /* caractères très grands */
+  font-size: 28px;
   font-weight: bold;
 }
 
+/* Astuce */
 #tips {
-  font-size: 0.9rem;
   margin-top: 1rem;
-  color: #555;
-  background: #fafafa;
-  padding: 12px;
-  border-radius: 10px;
-  line-height: 1.5;
+  font-size: 0.9rem;
+  color: #666;
+  font-style: italic;
 }
 
+/* FOOTER */
 footer {
   text-align: center;
   padding: 1rem;
   font-size: 0.85rem;
-  color: #777;
+  color: #888;
 }
