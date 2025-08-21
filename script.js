@@ -2,96 +2,99 @@ const output = document.getElementById("output");
 const keyboard = document.getElementById("keyboard");
 const tashkeelRow = document.getElementById("tashkeelRow");
 
-const letters = [
-  "ا","ب","ت","ث","ج","ح","خ","د","ذ","ر","ز","س",
-  "ش","ص","ض","ط","ظ","ع","غ","ف","ق","ك","ل","م",
-  "ن","ه","و","ي"
+/* Alphabet arabe */
+const rows = [
+  ["ا","ب","ت","ث","ج","ح","خ","د","ذ","ر","ز"],
+  ["س","ش","ص","ض","ط","ظ","ع","غ","ف","ق"],
+  ["ك","ل","م","ن","ه","و","ي","ء"]
 ];
 
+/* Nombres arabes */
 const numbers = ["٠","١","٢","٣","٤","٥","٦","٧","٨","٩"];
-const punctuation = ["،","؛","؟","."];
+
+/* Ponctuation */
+const punctuation = ["،","؛","؟",".",",","!","-","(",")"];
+
+/* Voyelles courtes */
 const tashkeel = ["َ","ً","ُ","ٌ","ِ","ٍ","ْ","ّ"];
 
 function createKeyboard() {
-  const allKeys = [...letters, ...numbers, ...punctuation];
-  let row = document.createElement("div");
-  row.className = "row";
-  allKeys.forEach((char, i) => {
-    const key = document.createElement("div");
-    key.className = "key";
-    key.textContent = char;
-    key.onclick = () => output.value += char;
-    row.appendChild(key);
-    if ((i+1) % 11 === 0) {
-      keyboard.appendChild(row);
-      row = document.createElement("div");
-      row.className = "row";
-    }
+  keyboard.innerHTML = "";
+
+  [...rows, numbers, punctuation].forEach(row => {
+    const rowDiv = document.createElement("div");
+    rowDiv.style.display = "flex";
+    rowDiv.style.gap = "6px";
+
+    row.forEach(key => {
+      const btn = document.createElement("button");
+      btn.className = "key";
+      btn.textContent = key;
+      btn.onclick = () => output.value += key;
+      rowDiv.appendChild(btn);
+    });
+
+    keyboard.appendChild(rowDiv);
   });
-  if (row.children.length > 0) keyboard.appendChild(row);
 }
 
 function createTashkeel() {
-  tashkeel.forEach(char => {
-    const key = document.createElement("div");
-    key.className = "key";
-    key.textContent = char;
-    key.onclick = () => output.value += char;
-    tashkeelRow.appendChild(key);
+  tashkeelRow.innerHTML = "";
+  tashkeel.forEach(mark => {
+    const btn = document.createElement("button");
+    btn.className = "key";
+    btn.textContent = mark;
+    btn.onclick = () => output.value += mark;
+    tashkeelRow.appendChild(btn);
   });
 }
 
+/* Fonctions toolbar */
 function copyText() {
   output.select();
   document.execCommand("copy");
   alert("Texte copié !");
 }
-
 function clearText() {
   output.value = "";
 }
-
 function downloadText() {
-  const blob = new Blob([output.value], { type: "text/plain" });
-  const link = document.createElement("a");
-  link.href = URL.createObjectURL(blob);
-  link.download = "arabiboard.txt";
-  link.click();
+  const blob = new Blob([output.value], {type: "text/plain"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "text.txt";
+  a.click();
 }
-
 function toggleDirection() {
-  output.dir = (output.dir === "rtl") ? "ltr" : "rtl";
+  output.dir = output.dir === "rtl" ? "ltr" : "rtl";
 }
-
 function toggleTashkeel() {
-  tashkeelRow.style.display = (tashkeelRow.style.display === "flex") ? "none" : "flex";
+  tashkeelRow.style.display = tashkeelRow.style.display === "none" ? "flex" : "none";
 }
 
 /* Thèmes */
 const themes = {
-  light: { bg: "#ffffff", text: "#2c3e50", key: "#f9f9f9", accent: "#3498db" },
-  dark: { bg: "#2c3e50", text: "#ecf0f1", key: "#34495e", accent: "#e67e22" },
-  blue: { bg: "#eaf6ff", text: "#2c3e50", key: "#ffffff", accent: "#3498db" },
-  green: { bg: "#eafaf1", text: "#2c3e50", key: "#ffffff", accent: "#2ecc71" },
-  red: { bg: "#fdecea", text: "#2c3e50", key: "#ffffff", accent: "#e74c3c" },
-  purple: { bg: "#f7eafc", text: "#2c3e50", key: "#ffffff", accent: "#9b59b6" },
-  orange: { bg: "#fff4e6", text: "#2c3e50", key: "#ffffff", accent: "#f39c12" },
-  yellow: { bg: "#fffde7", text: "#2c3e50", key: "#ffffff", accent: "#f1c40f" },
-  brown: { bg: "#f3e6e1", text: "#2c3e50", key: "#ffffff", accent: "#8e5a3c" },
+  light: { "--bg": "#ffffff", "--text": "#2c3e50", "--accent": "#3498db", "--key-bg": "#ecf0f1" },
+  dark: { "--bg": "#2c3e50", "--text": "#ecf0f1", "--accent": "#e74c3c", "--key-bg": "#34495e" },
+  blue: { "--bg": "#eaf6ff", "--text": "#2c3e50", "--accent": "#2980b9", "--key-bg": "#d6eaf8" },
+  green: { "--bg": "#eafaf1", "--text": "#145a32", "--accent": "#27ae60", "--key-bg": "#d5f5e3" },
+  red: { "--bg": "#fdecea", "--text": "#641e16", "--accent": "#c0392b", "--key-bg": "#fadbd8" },
+  purple: { "--bg": "#f5eafc", "--text": "#4a235a", "--accent": "#8e44ad", "--key-bg": "#ebdef0" },
+  orange: { "--bg": "#fff5e6", "--text": "#6e2c00", "--accent": "#e67e22", "--key-bg": "#fae5d3" },
+  yellow: { "--bg": "#fffde7", "--text": "#7f6000", "--accent": "#f1c40f", "--key-bg": "#fcf3cf" },
+  brown: { "--bg": "#fdf2e9", "--text": "#4e342e", "--accent": "#8e5a3c", "--key-bg": "#efebe9" }
 };
 
 document.querySelectorAll(".color-swatch").forEach(swatch => {
   swatch.addEventListener("click", () => {
     const theme = themes[swatch.dataset.color];
-    if (theme) {
-      document.documentElement.style.setProperty("--bg", theme.bg);
-      document.documentElement.style.setProperty("--text", theme.text);
-      document.documentElement.style.setProperty("--key-bg", theme.key);
-      document.documentElement.style.setProperty("--accent", theme.accent);
-    }
+    Object.keys(theme).forEach(varName => {
+      document.documentElement.style.setProperty(varName, theme[varName]);
+    });
   });
 });
 
 /* Init */
 createKeyboard();
 createTashkeel();
+tashkeelRow.style.display = "none";
