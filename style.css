@@ -16,7 +16,6 @@ body {
   min-height: 100vh;
 }
 
-/* HEADER */
 header {
   padding: 1rem 2rem;
   display: flex;
@@ -25,32 +24,25 @@ header {
   flex-direction: row-reverse;
 }
 
-/* Logo stylé */
 .logo {
   text-decoration: none;
   color: inherit;
   text-align: right;
 }
-
 .logo h1 {
   margin: 0;
   font-size: 2.3rem;
   font-family: "Cairo", sans-serif;
   font-weight: 800;
-  letter-spacing: 1px;
   background: linear-gradient(90deg, var(--accent), #e67e22);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
-
 .logo .slogan {
   font-size: 1.1rem;
   font-family: "Amiri", serif;
   font-style: italic;
   color: var(--text);
-  margin-top: 0.2rem;
-  text-align: right;
   opacity: 0.8;
 }
 
@@ -59,7 +51,6 @@ header {
   display: flex;
   gap: 8px;
 }
-
 .color-swatch {
   width: 22px;
   height: 22px;
@@ -72,15 +63,13 @@ header {
   transform: scale(1.2);
 }
 
-/* MAIN */
+/* Zone principale */
 main {
   flex: 1;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
   padding: 1rem;
 }
-
 .box {
   background: #fff;
   padding: 1.5rem;
@@ -89,24 +78,23 @@ main {
   max-width: 900px;
   width: 100%;
 }
-
 textarea {
   width: 100%;
   height: 150px;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   padding: 10px;
   border: 2px solid var(--accent);
   border-radius: 8px;
   resize: none;
 }
 
+/* Toolbar */
 .toolbar {
   margin-top: 1rem;
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
 }
-
 .toolbar button {
   padding: 8px 14px;
   background: var(--accent);
@@ -120,23 +108,30 @@ textarea {
   opacity: 0.8;
 }
 
-/* CLAVIER */
+/* Clavier */
+.keyboard-container {
+  display: flex;
+  margin-top: 1.5rem;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+/* Alphabet */
 .kbd {
-  margin-top: 1rem;
   display: flex;
   flex-direction: column;
   gap: 8px;
+  text-align: right;
 }
-
 .key {
-  min-width: 45px;
-  min-height: 45px;
-  padding: 8px;
+  min-width: 50px;
+  min-height: 50px;
+  padding: 10px;
   background: var(--key-bg);
   border: 2px solid var(--accent);
   border-radius: 8px;
   text-align: center;
-  font-size: 22px;
+  font-size: 28px;
   font-weight: bold;
   cursor: pointer;
   transition: background 0.2s, transform 0.1s;
@@ -147,28 +142,33 @@ textarea {
   transform: scale(1.05);
 }
 
-/* Voyelles courtes */
-#tashkeelRow {
+/* Voyelles à gauche */
+#tashkeelBlock {
   display: flex;
-  gap: 6px;
-  margin-top: 1rem;
+  flex-direction: column;
+  gap: 8px;
 }
-#tashkeelRow .key {
-  min-width: 40px;
-  min-height: 40px;
-  font-size: 28px;
-  font-weight: bold;
+#tashkeelBlock .key {
+  min-width: 55px;
+  min-height: 55px;
+  font-size: 30px;
 }
 
-/* Astuce */
+/* Astuces */
 #tips {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  color: #666;
-  font-style: italic;
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  color: #444;
+}
+#tips ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+#tips li {
+  margin-bottom: 6px;
 }
 
-/* FOOTER */
+/* Footer */
 footer {
   text-align: center;
   padding: 1rem;
