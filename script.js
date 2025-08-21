@@ -1,30 +1,30 @@
 const output = document.getElementById("output");
 const keyboard = document.getElementById("keyboard");
-const tashkeelRow = document.getElementById("tashkeelRow");
+const tashkeelBlock = document.getElementById("tashkeelBlock");
 
-/* Alphabet arabe */
+/* Alphabet arabe (ordre de droite à gauche) */
 const rows = [
-  ["ا","ب","ت","ث","ج","ح","خ","د","ذ","ر","ز"],
-  ["س","ش","ص","ض","ط","ظ","ع","غ","ف","ق"],
-  ["ك","ل","م","ن","ه","و","ي","ء"]
+  ["ز","ر","ذ","د","خ","ح","ج","ث","ت","ب","ا"],
+  ["ق","ف","غ","ع","ظ","ط","ض","ص","ش","س"],
+  ["ء","ي","و","ه","ن","م","ل","ك"]
 ];
 
 /* Nombres arabes */
-const numbers = ["٠","١","٢","٣","٤","٥","٦","٧","٨","٩"];
+const numbers = ["٩","٨","٧","٦","٥","٤","٣","٢","١","٠"];
 
 /* Ponctuation */
-const punctuation = ["،","؛","؟",".",",","!","-","(",")"];
+const punctuation = ["؟","؛","،",".",",","!","-","(",")"];
 
 /* Voyelles courtes */
 const tashkeel = ["َ","ً","ُ","ٌ","ِ","ٍ","ْ","ّ"];
 
 function createKeyboard() {
   keyboard.innerHTML = "";
-
   [...rows, numbers, punctuation].forEach(row => {
     const rowDiv = document.createElement("div");
     rowDiv.style.display = "flex";
     rowDiv.style.gap = "6px";
+    rowDiv.style.flexDirection = "row-reverse"; // RTL
 
     row.forEach(key => {
       const btn = document.createElement("button");
@@ -39,13 +39,13 @@ function createKeyboard() {
 }
 
 function createTashkeel() {
-  tashkeelRow.innerHTML = "";
+  tashkeelBlock.innerHTML = "";
   tashkeel.forEach(mark => {
     const btn = document.createElement("button");
     btn.className = "key";
     btn.textContent = mark;
     btn.onclick = () => output.value += mark;
-    tashkeelRow.appendChild(btn);
+    tashkeelBlock.appendChild(btn);
   });
 }
 
@@ -67,9 +67,6 @@ function downloadText() {
 }
 function toggleDirection() {
   output.dir = output.dir === "rtl" ? "ltr" : "rtl";
-}
-function toggleTashkeel() {
-  tashkeelRow.style.display = tashkeelRow.style.display === "none" ? "flex" : "none";
 }
 
 /* Thèmes */
@@ -97,4 +94,3 @@ document.querySelectorAll(".color-swatch").forEach(swatch => {
 /* Init */
 createKeyboard();
 createTashkeel();
-tashkeelRow.style.display = "none";
