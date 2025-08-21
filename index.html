@@ -12,7 +12,7 @@
 </head>
 <body>
   <header>
-    <!-- Palette de couleurs à gauche -->
+    <!-- Palette couleurs à gauche -->
     <div class="theme-selector">
       <div class="color-swatch" data-color="light" style="background:#ffffff"></div>
       <div class="color-swatch" data-color="dark" style="background:#2c3e50"></div>
@@ -25,7 +25,7 @@
       <div class="color-swatch" data-color="brown" style="background:#8e5a3c"></div>
     </div>
 
-    <!-- Logo + slogan à droite -->
+    <!-- Logo + slogan -->
     <a href="index.html" class="logo">
       <h1>ArabiBoard</h1>
       <p class="slogan">Write Arabic instantly, anywhere</p>
@@ -41,15 +41,25 @@
         <button onclick="clearText()">🗑 Effacer</button>
         <button onclick="downloadText()">💾 Télécharger</button>
         <button onclick="toggleDirection()">🔄 RTL/LTR</button>
-        <button onclick="toggleTashkeel()">َ Voyelles courtes</button>
       </div>
 
-      <div id="tashkeelRow"></div>
-      <div class="kbd" id="keyboard"></div>
+      <div class="keyboard-container">
+        <!-- Voyelles à gauche -->
+        <div id="tashkeelBlock"></div>
+        <!-- Alphabet à droite -->
+        <div class="kbd" id="keyboard"></div>
+      </div>
 
       <div id="tips">
-        💡 Astuce : Cliquez sur une lettre pour l’ajouter.  
-        Utilisez "Voyelles courtes" pour ajouter les signes diacritiques.  
+        <h3>💡 Conseils utiles :</h3>
+        <ul>
+          <li>Utilisez le bouton 📋 pour copier rapidement le texte.</li>
+          <li>Changez le thème avec les carrés en haut pour plus de confort visuel.</li>
+          <li>Les voyelles courtes (tashkeel) sont toujours visibles à gauche.</li>
+          <li>Vous pouvez basculer entre RTL et LTR avec 🔄 pour écrire mixte.</li>
+          <li>Utilisez « Effacer » 🗑 pour recommencer rapidement.</li>
+          <li>Le bouton 💾 permet de sauvegarder votre texte en fichier.</li>
+        </ul>
       </div>
     </div>
   </main>
